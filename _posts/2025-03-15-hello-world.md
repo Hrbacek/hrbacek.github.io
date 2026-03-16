@@ -68,9 +68,7 @@ The fundamental theorem of calculus states that differentiation and
 integration are inverse operations. Below, the Gaussian integral — one
 of the most useful results in probability and physics:
 
-$$
-\int_{-\infty}^{\infty} e^{-x^2}\, dx = \sqrt{\pi}
-$$
+$$\int_{-\infty}^{\infty} e^{-x^2}\, dx = \sqrt{\pi}$$
 
 <aside markdown="0">
 The Gaussian integral has no closed form using elementary functions, yet
