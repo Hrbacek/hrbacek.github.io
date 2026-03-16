@@ -1,0 +1,6 @@
+title: My Blog
+description: Writing about things I find interesting
+url: "https://Hrbacek.github.io"
+
+plugins:
+  - jekyll-feed

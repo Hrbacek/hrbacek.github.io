@@ -1,0 +1,25 @@
+body {
+  font-family: Georgia, serif;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: #222;
+  line-height: 1.7;
+}
+
+header {
+  margin-bottom: 3rem;
+}
+
+header a {
+  text-decoration: none;
+  color: #222;
+  font-size: 0.9rem;
+}
+
+time {
+  display: block;
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
