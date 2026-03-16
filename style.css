@@ -55,7 +55,7 @@
 
 /* ── Base ── */
 body {
-  font-family: "Computer Modern Serif", Georgia, serif;
+  font-family: "Computer Modern Serif", Georgia, "Times New Roman", serif;
   font-size: 17px;
   line-height: 1.6;
   color: var(--text);
@@ -197,7 +197,11 @@ body {
 
 .post-body > * { grid-column: 1; }
 
-.post-body p { margin: 0 0 1.4rem; }
+.post-body p {
+  margin: 0 0 1.4rem;
+  text-align: justify;
+  hyphens: auto;
+}
 
 .post-body h2 {
   font-size: 18px;
@@ -229,8 +233,9 @@ body {
 
 /* ── Code ── */
 .post-body code {
-  font-family: 'Menlo', 'Consolas', monospace;
+  font-family: 'Source Code Pro', monospace;
   font-size: 13px;
+  font-weight: 300;
   background: var(--bg-code);
   color: var(--text-body);
   padding: 0.2em 0.4em;
@@ -250,7 +255,8 @@ body {
   background: none;
   padding: 0;
   font-size: 13px;
-  line-height: 1.6;
+  font-weight: 300;
+  line-height: 1.7;
 }
 
 /* ── Blockquote ── */
@@ -276,8 +282,7 @@ body {
   font-size: 12px;
   line-height: 1.5;
   color: var(--muted);
-  border-left: 1px solid var(--bg-border);
-  padding-left: 1.25rem;
+  padding-left: 0;
   margin-bottom: 1.5rem;
 }
 
@@ -289,6 +294,7 @@ body {
 
 .post-body aside code {
   font-size: 11px;
+  font-weight: 300;
 }
 
 /* ── Divider ── */
@@ -299,46 +305,7 @@ hr {
   margin: 2.5rem 0;
 }
 
-/* ── Responsive ── */
-@media (max-width: 800px) {
-  .post-body {
-    grid-template-columns: 1fr;
-  }
-
-  .post-body aside {
-    grid-column: 1;
-    border-left: none;
-    border-top: 1px solid var(--bg-border);
-    padding: 1rem 0 0;
-    margin-top: 0.5rem;
-  }
-
-  .post-list li {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-}
-
-/* ── Math ── */
-.katex-display {
-  grid-column: 1;
-  overflow-x: auto;
-  padding: 0.5rem 0;
-}
-
-.post-body .katex-display {
-  grid-column: 1;
-}
-
-.math-block {
-  grid-column: 1;
-  margin: 1.5rem 0;
-  overflow-x: auto;
-}
-
 /* ── Syntax highlighting ── */
-
-/* Base — overrides the plain pre/code styling for highlighted blocks */
 .highlight {
   background: var(--bg-code);
   border: 1px solid var(--bg-border);
@@ -360,81 +327,88 @@ hr {
 .highlight code {
   background: none;
   padding: 0;
+  font-family: 'Source Code Pro', monospace;
   font-size: 13px;
+  font-weight: 300;
   line-height: 1.7;
 }
 
-/* ── Light mode tokens (Moss) ── */
+.highlight table {
+  border: none;
+  margin: 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.highlight .gutter {
+  width: 2rem;
+  padding-right: 1rem;
+  text-align: right;
+  color: var(--muted);
+  font-size: 11px;
+  user-select: none;
+  border-right: 0.5px solid var(--bg-border);
+  vertical-align: top;
+}
+
+.highlight .code {
+  padding-left: 1rem;
+}
+
+/* Light mode tokens */
 .highlight .c,
 .highlight .c1,
 .highlight .cm,
-.highlight .cs  { color: #82906a; font-style: italic; } /* comments — muted green */
-
+.highlight .cs  { color: #82906a; font-style: italic; }
 .highlight .k,
 .highlight .kd,
 .highlight .kn,
-.highlight .kr  { color: #384428; font-weight: 500; }   /* keywords — dark nav green */
-
+.highlight .kr  { color: #384428; font-weight: 500; }
 .highlight .s,
 .highlight .s1,
 .highlight .s2,
-.highlight .sb  { color: #7a4a18; }                     /* strings — coffee link color */
-
+.highlight .sb  { color: #7a4a18; }
 .highlight .mi,
 .highlight .mf,
-.highlight .mh  { color: #5c6e3a; }                     /* numbers — mid green */
-
+.highlight .mh  { color: #5c6e3a; }
 .highlight .nf,
-.highlight .nx  { color: #3a5c28; }                     /* functions — forest green */
-
+.highlight .nx  { color: #3a5c28; }
 .highlight .na,
-.highlight .nb  { color: #4a5c38; }                     /* builtins/attributes */
-
+.highlight .nb  { color: #4a5c38; }
 .highlight .o,
-.highlight .p   { color: #82906a; }                     /* operators, punctuation — muted */
-
+.highlight .p   { color: #82906a; }
 .highlight .n,
 .highlight .nl,
-.highlight .nn  { color: #282e14; }                     /* names — body text */
+.highlight .nn  { color: #282e14; }
+.highlight .err { color: #8b2020; background: #f2e8e8; }
 
-.highlight .err { color: #8b2020; background: #f2e8e8; } /* errors */
-
-/* ── Dark mode tokens (Forest) ── */
+/* Dark mode tokens */
 [data-theme="dark"] .highlight .c,
 [data-theme="dark"] .highlight .c1,
 [data-theme="dark"] .highlight .cm,
-[data-theme="dark"] .highlight .cs  { color: #5c6e50; font-style: italic; } /* comments */
-
+[data-theme="dark"] .highlight .cs  { color: #5c6e50; font-style: italic; }
 [data-theme="dark"] .highlight .k,
 [data-theme="dark"] .highlight .kd,
 [data-theme="dark"] .highlight .kn,
-[data-theme="dark"] .highlight .kr  { color: #a0b088; font-weight: 500; }   /* keywords */
-
+[data-theme="dark"] .highlight .kr  { color: #a0b088; font-weight: 500; }
 [data-theme="dark"] .highlight .s,
 [data-theme="dark"] .highlight .s1,
 [data-theme="dark"] .highlight .s2,
-[data-theme="dark"] .highlight .sb  { color: #c8945a; }                     /* strings — latte */
-
+[data-theme="dark"] .highlight .sb  { color: #c8945a; }
 [data-theme="dark"] .highlight .mi,
 [data-theme="dark"] .highlight .mf,
-[data-theme="dark"] .highlight .mh  { color: #8aaa68; }                     /* numbers */
-
+[data-theme="dark"] .highlight .mh  { color: #8aaa68; }
 [data-theme="dark"] .highlight .nf,
-[data-theme="dark"] .highlight .nx  { color: #b8d098; }                     /* functions */
-
+[data-theme="dark"] .highlight .nx  { color: #b8d098; }
 [data-theme="dark"] .highlight .na,
-[data-theme="dark"] .highlight .nb  { color: #90a878; }                     /* builtins */
-
+[data-theme="dark"] .highlight .nb  { color: #90a878; }
 [data-theme="dark"] .highlight .o,
-[data-theme="dark"] .highlight .p   { color: #5c6e50; }                     /* operators */
-
+[data-theme="dark"] .highlight .p   { color: #5c6e50; }
 [data-theme="dark"] .highlight .n,
 [data-theme="dark"] .highlight .nl,
-[data-theme="dark"] .highlight .nn  { color: #c0c4a8; }                     /* names */
+[data-theme="dark"] .highlight .nn  { color: #c0c4a8; }
+[data-theme="dark"] .highlight .err { color: #e88080; background: #2e1818; }
 
-[data-theme="dark"] .highlight .err { color: #e88080; background: #2e1818; } /* errors */
-
-/* Dark mode via system preference */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .highlight .c,
   :root:not([data-theme="light"]) .highlight .c1,
@@ -454,29 +428,7 @@ hr {
   :root:not([data-theme="light"]) .highlight .err { color: #e88080; background: #2e1818; }
 }
 
-.highlight table {
-  border: none;
-  margin: 0;
-  width: 100%;
-}
-
-.highlight .gutter {
-  width: 2rem;
-  padding-right: 1rem;
-  text-align: right;
-  color: var(--muted);
-  font-size: 11px;
-  user-select: none;
-  border-right: 0.5px solid var(--bg-border);
-}
-
-.highlight .code {
-  padding-left: 1rem;
-}
-
-/* ── Math backgrounds ── */
-
-/* Inline equations */
+/* ── Math ── */
 .katex {
   background: var(--bg-code);
   border: 0.5px solid var(--bg-border);
@@ -485,7 +437,6 @@ hr {
   font-size: 0.95em;
 }
 
-/* Display equations — block level */
 .katex-display {
   grid-column: 1;
   background: var(--bg-code);
@@ -494,12 +445,36 @@ hr {
   padding: 1.25rem 1.5rem;
   margin: 1.5rem 0;
   overflow-x: auto;
+  text-align: center;
 }
 
-/* Remove the inline background when it's inside a display block
-   otherwise you get double-nested backgrounds */
 .katex-display .katex {
   background: none;
   border: none;
   padding: 0;
+  font-size: 1em;
+}
+
+.katex-display > .katex > .katex-html {
+  display: inline-block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 800px) {
+  .post-body {
+    grid-template-columns: 1fr;
+  }
+
+  .post-body aside {
+    grid-column: 1;
+    border-left: none;
+    border-top: 1px solid var(--bg-border);
+    padding: 1rem 0 0;
+    margin-top: 0.5rem;
+  }
+
+  .post-list li {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
 }
