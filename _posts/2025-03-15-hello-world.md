@@ -16,7 +16,7 @@ room to breathe without feeling airy. The warm green background and dark
 text create a lower contrast than pure black on white — easier on the eyes
 for longer reading sessions.
 
-<aside>
+<aside markdown="0">
 Georgia was designed by Matthew Carter in 1993 specifically for reading on
 low-resolution screens. It remains one of the best choices for body text on
 the web.
@@ -32,7 +32,7 @@ subtle background highlight.
 Inline code looks like this: `const greeting = "hello"`. It sits quietly
 in the flow of the text using the same warm background tint as code blocks.
 
-<aside>
+<aside markdown="0">
 <code>parse_block_html: true</code> must be set in <code>_config.yml</code>
 for HTML tags like <code>aside</code> to work inside Markdown files.
 </aside>
@@ -57,7 +57,7 @@ paragraph of text.
 
 ![A placeholder image](https://picsum.photos/seed/blog/660/340)
 
-<aside>
+<aside markdown="0">
 <img src="https://picsum.photos/seed/aside/220/140" alt="aside image">
 Images in the aside column stretch to fill the 220px column width. Keep
 them simple — small details are lost at this size.
