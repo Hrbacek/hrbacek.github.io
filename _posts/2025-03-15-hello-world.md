@@ -62,13 +62,17 @@ important numbers in mathematics — in one elegant equation.
 
 A display equation on its own line:
 
+<div class="math-block" markdown="0">
 $$\frac{d}{dx}\left( \int_{a}^{x} f(t)\, dt\right) = f(x)$$
+</div>
 
 The fundamental theorem of calculus states that differentiation and
 integration are inverse operations. Below, the Gaussian integral — one
 of the most useful results in probability and physics:
 
+<div class="math-block" markdown="0">
 $$\int_{-\infty}^{\infty} e^{-x^2}\, dx = \sqrt{\pi}$$
+</div>
 
 <aside markdown="0">
 The Gaussian integral has no closed form using elementary functions, yet

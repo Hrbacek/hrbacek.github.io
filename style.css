@@ -429,10 +429,17 @@ hr {
 }
 
 /* ── Math ── */
+.math-block {
+  grid-column: 1;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  text-align: center;
+}
+
 .katex-display {
   grid-column: 1 !important;
   display: block;
-  margin: 1.5rem 0;
+  margin: 0;
   overflow-x: auto;
   text-align: center;
 }
