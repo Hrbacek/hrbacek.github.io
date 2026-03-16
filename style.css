@@ -69,7 +69,7 @@ body {
 
 /* ── Page shell ── */
 .site-wrap {
-  max-width: 900px;
+  max-width: 1050px;
   width: 100%;
   margin: 0 auto;
   padding: 3rem 1.5rem 6rem;
@@ -168,7 +168,7 @@ body {
 
 /* ── Post page ── */
 .post-header {
-  max-width: 600px;
+  max-width: 750px;
   margin-bottom: 2rem;
 }
 
@@ -190,8 +190,8 @@ body {
 .post-body {
   color: var(--text-body);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
-  column-gap: 3rem;
+  grid-template-columns: 750px 200px;
+  column-gap: 2.5rem;
   align-items: start;
 }
 
@@ -301,7 +301,7 @@ body {
 hr {
   border: none;
   border-top: 0.5px solid var(--bg-border);
-  max-width: 600px;
+  max-width: 750px;
   margin: 2.5rem 0;
 }
 
@@ -445,7 +445,7 @@ hr {
 }
 
 /* ── Responsive ── */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .post-body {
     grid-template-columns: 1fr;
   }
@@ -467,5 +467,5 @@ hr {
 /* ── Constraints ── */
 .site-header,
 .post-list {
-  max-width: 660px;
+  max-width: 750px;
 }
