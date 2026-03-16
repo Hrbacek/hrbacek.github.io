@@ -56,7 +56,7 @@
 /* ── Base ── */
 body {
   font-family: "Computer Modern Serif", Georgia, "Times New Roman", serif;
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
@@ -78,7 +78,7 @@ body {
 /* ── Navigation ── */
 .site-nav {
   font-family: "Computer Modern Serif", Georgia, serif;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   margin-bottom: 3.5rem;
   display: flex;
@@ -121,7 +121,7 @@ body {
 
 .site-header h1 {
   font-family: "Computer Modern Serif", Georgia, serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: normal;
   color: var(--text);
   margin: 0 0 0.25rem;
@@ -129,7 +129,7 @@ body {
 
 .site-header p {
   font-family: "Computer Modern Serif", Georgia, serif;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   margin: 0;
 }
@@ -152,14 +152,14 @@ body {
 
 .post-list .date {
   font-family: "Computer Modern Serif", Georgia, serif;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   white-space: nowrap;
   min-width: 90px;
 }
 
 .post-list a {
-  font-size: 16px;
+  font-size: 17px;
   color: var(--link);
   text-decoration: none;
 }
@@ -173,7 +173,7 @@ body {
 }
 
 .post-header h1 {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: normal;
   line-height: 1.2;
   color: var(--text);
@@ -182,7 +182,7 @@ body {
 
 .post-meta {
   font-family: "Computer Modern Serif", Georgia, serif;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
 }
 
@@ -204,7 +204,7 @@ body {
 }
 
 .post-body h2 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: normal;
   color: var(--text);
   margin: 2.5rem 0 0.75rem;
@@ -213,7 +213,7 @@ body {
 }
 
 .post-body h3 {
-  font-size: 15px;
+  font-size: 17px;
   font-family: "Computer Modern Serif", Georgia, serif;
   font-weight: 500;
   color: var(--text);
@@ -279,7 +279,7 @@ body {
 .post-body aside {
   grid-column: 2;
   font-family: "Computer Modern Serif", Georgia, serif;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
   color: var(--muted);
   padding-left: 0;
@@ -464,6 +464,7 @@ hr {
   }
 }
 
+/* ── Constraints ── */
 .site-header,
 .post-list {
   max-width: 660px;
