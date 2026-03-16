@@ -1,6 +1,5 @@
 /* ── Variables ── */
 :root {
-  /* Light (Moss) - Default */
   --bg:            #e8ece0;
   --bg-code:       #dce2d0;
   --bg-border:     #cdd4c0;
@@ -10,11 +9,9 @@
   --nav:           #384428;
   --link:          #7a4a18;
   --link-hover-bg: #7a4a1815;
-  
   --transition-speed: 0.25s;
 }
 
-/* Dark (Forest) - Applied via System or Data Attribute */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg:            #181e14;
@@ -41,9 +38,22 @@
   --link-hover-bg: #c8945a20;
 }
 
-/* ── Reset & Base ── */
+[data-theme="light"] {
+  --bg:            #e8ece0;
+  --bg-code:       #dce2d0;
+  --bg-border:     #cdd4c0;
+  --text:          #181e08;
+  --text-body:     #282e14;
+  --muted:         #82906a;
+  --nav:           #384428;
+  --link:          #7a4a18;
+  --link-hover-bg: #7a4a1815;
+}
+
+/* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; }
 
+/* ── Base ── */
 body {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 17px;
@@ -52,12 +62,12 @@ body {
   background: var(--bg);
   margin: 0;
   padding: 0;
-  /* Added border-color to transition for smoother theme switching */
-  transition: background var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
 }
 
-/* ── Layout ── */
+/* ── Page shell ── */
 .site-wrap {
   max-width: 900px;
   width: 100%;
@@ -65,6 +75,7 @@ body {
   padding: 3rem 1.5rem 6rem;
 }
 
+/* ── Navigation ── */
 .site-nav {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 12px;
@@ -75,38 +86,110 @@ body {
   gap: 0.5rem;
 }
 
+.site-nav a {
+  color: var(--nav);
+  text-decoration: none;
+}
+
+.site-nav a:hover { text-decoration: underline; }
+
+.site-nav .sep { color: var(--bg-border); }
+
 .site-nav .spacer { flex: 1; }
 
+/* ── Theme toggle ── */
 #theme-toggle {
   font-family: inherit;
   font-size: 11px;
   color: var(--muted);
   background: none;
-  border: 1px solid var(--bg-border); /* Slightly thicker for visibility */
+  border: 1px solid var(--bg-border);
   border-radius: 4px;
-  padding: 4px 10px; /* Larger tap target */
+  padding: 4px 10px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
-#theme-toggle:hover { 
-  color: var(--nav); 
-  border-color: var(--muted); 
+#theme-toggle:hover {
+  color: var(--nav);
+  border-color: var(--muted);
   background: var(--bg-code);
 }
 
-/* ── Typography & Posts ── */
+/* ── Homepage ── */
+.site-header { margin-bottom: 2.5rem; }
+
+.site-header h1 {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 0.25rem;
+}
+
+.site-header p {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ── Post list ── */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 0.5px solid var(--bg-border);
+}
+
+.post-list li {
+  display: flex;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding: 0.85rem 0;
+  border-bottom: 0.5px solid var(--bg-border);
+}
+
+.post-list .date {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  min-width: 90px;
+}
+
+.post-list a {
+  font-size: 16px;
+  color: var(--link);
+  text-decoration: none;
+}
+
+.post-list a:hover { text-decoration: underline; }
+
+/* ── Post page ── */
+.post-header {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
 .post-header h1 {
   font-size: 28px;
   font-weight: normal;
   line-height: 1.2;
+  color: var(--text);
   margin: 0 0 0.5rem;
 }
 
+.post-meta {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ── Post body ── */
 .post-body {
   color: var(--text-body);
   display: grid;
-  /* Changed 600px to 1fr to prevent overflow on tablet widths */
   grid-template-columns: minmax(0, 1fr) 220px;
   column-gap: 3rem;
   align-items: start;
@@ -114,10 +197,28 @@ body {
 
 .post-body > * { grid-column: 1; }
 
+.post-body p { margin: 0 0 1.4rem; }
+
+.post-body h2 {
+  font-size: 18px;
+  font-weight: normal;
+  color: var(--text);
+  margin: 2.5rem 0 0.75rem;
+  border-bottom: 0.5px solid var(--bg-border);
+  padding-bottom: 0.4rem;
+}
+
+.post-body h3 {
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  color: var(--text);
+  margin: 2rem 0 0.5rem;
+}
+
 .post-body a {
   color: var(--link);
   text-decoration: none;
-  /* Using color-mix for a subtle underline that matches the theme */
   border-bottom: 1px solid color-mix(in srgb, var(--link) 25%, transparent);
 }
 
@@ -126,22 +227,46 @@ body {
   border-bottom-color: var(--link);
 }
 
-/* ── Code Blocks ── */
+/* ── Code ── */
 .post-body code {
   font-family: 'Menlo', 'Consolas', monospace;
   font-size: 13px;
   background: var(--bg-code);
+  color: var(--text-body);
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
 
 .post-body pre {
-  grid-column: 1 / -1; /* Allow code blocks to break out slightly or align better */
   background: var(--bg-code);
   padding: 1.25rem;
   border-radius: 6px;
   overflow-x: auto;
+  margin: 1.5rem 0;
   border: 1px solid var(--bg-border);
+}
+
+.post-body pre code {
+  background: none;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ── Blockquote ── */
+.post-body blockquote {
+  border-left: 2px solid var(--bg-border);
+  margin: 1.5rem 0;
+  padding: 0 0 0 1.25rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── Images ── */
+.post-body img {
+  max-width: 100%;
+  display: block;
+  margin: 2rem 0;
 }
 
 /* ── Aside ── */
@@ -156,12 +281,30 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.post-body aside img {
+  width: 100%;
+  margin: 0 0 0.5rem;
+  border-radius: 3px;
+}
+
+.post-body aside code {
+  font-size: 11px;
+}
+
+/* ── Divider ── */
+hr {
+  border: none;
+  border-top: 0.5px solid var(--bg-border);
+  max-width: 600px;
+  margin: 2.5rem 0;
+}
+
 /* ── Responsive ── */
 @media (max-width: 800px) {
   .post-body {
-    grid-template-columns: 1fr; /* Collapse sidebar earlier for comfort */
+    grid-template-columns: 1fr;
   }
-  
+
   .post-body aside {
     grid-column: 1;
     border-left: none;
@@ -169,7 +312,7 @@ body {
     padding: 1rem 0 0;
     margin-top: 0.5rem;
   }
-  
+
   .post-list li {
     flex-direction: column;
     gap: 0.25rem;
