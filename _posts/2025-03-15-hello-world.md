@@ -93,3 +93,7 @@ in the muted tone. It recedes from the main text without disappearing.
 Hit the **toggle theme** button in the top right to switch between moss
 (light) and dark forest (dark). All colors are CSS variables — the switch
 is instant with a 0.2s transition on background and color.
+
+> "The exact paragraph text goes here."
+>
+> — de Ruiter et al. (2024, p. 15)²
